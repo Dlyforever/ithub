@@ -5,13 +5,13 @@
 // 5 退出
 
 exports.showSignin=(req,res)=>{
-    res.send('您已登录');
+    res.render('signin.html');
 };
 exports.handleSignin=(req,res)=>{
     res.send();
 };
 exports.showSignup=(req,res)=>{
-    res.send();
+    res.render("signup.html");
 };
 exports.handleSignp=(req,res)=>{
     res.send();

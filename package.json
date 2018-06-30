@@ -4,7 +4,9 @@
   "description": "一个简单的问答社区",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "git add . && git commit && git push"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,10 @@
   },
   "homepage": "https://github.com/Dlyforever/ithub#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "art-template": "^4.12.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.3",
+    "express-art-template": "^1.0.1",
+    "jquery": "^3.3.1"
   }
 }
