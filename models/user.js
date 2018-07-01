@@ -9,8 +9,11 @@ exports.createUser = (user,callback)=>{
             if (err) {
                 return callback(err);
             }
-            // 返回查询到的数据
-             callback(null,results);
+            if(results.affectedRows > 0) {
+                callback(null,true);
+            } else {
+                callback(null,false);
+            }
         }
       
     );
@@ -19,13 +22,20 @@ exports.createUser = (user,callback)=>{
 // 根据email查询用户
 exports.getByEmail = (email,callback)=> {
     db.query(
-        "select * from `user` where `email`= ?",
+        "select * from `users` where `email`= ?",
         email,
         (err,results)=>{
-            if(err)=> {
+            if(err) {
                 return callback(err);
             }
-            callback(null,results);
+            if (results.length > 0) {
+                // eamil 要求是唯一的，不能重复
+                // 所以根据email 只能查到一条信息
+                callback(null,results[0]);
+            } else {
+                callback(null,null);
+            }
+           
         }
     );
 };
@@ -36,11 +46,17 @@ exports.getByNickname = (nickname,callback)=>{
     db.query(
         "select * from `users` where `nickname`=? ",
         nickname,
-        (err,callback)=>{
+        (err,results)=>{
             if(err){
                 return callback(err);
             }
-            callback(null,results);
+            // nickname 要求是唯一的，不能重复
+            // 所以根据nickname 只能查到一条信息
+           if (results.length > 0) {
+               callback(null,results[0]);
+           } else {
+               callback(null,null);
+           }
         }
     );
 };

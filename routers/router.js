@@ -21,6 +21,6 @@ router
     .get("/signin",userCtrl.showSignin)
     .post("/signin",userCtrl.handleSignin)
     .get("/signUp",userCtrl.showSignup)
-    .post("/signup",userCtrl.handleSignp)
+    .post("/signup",userCtrl.handleSignup)
     .get("/signout",userCtrl.handleSignout)
     

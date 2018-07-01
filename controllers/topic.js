@@ -1,1 +1,1 @@
-const db = require("./db_helper");
+const db = require("../models/db_helper");
